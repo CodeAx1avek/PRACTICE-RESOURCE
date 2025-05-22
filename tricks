@@ -13,3 +13,23 @@ cat output.txt | grep -Ea '\.pdf' | while read -r url; do curl -s "$url" | pdfto
 website: 
 https://web.archive.org/cdx/search/cdx?url=*.licindia.com/*&collapse=urlkey&output=text&fl=original&filter=original:.*\.(xls|xml|xlsx|json|pdf|sql|doc|docx|pptx|txt|zip|tar\.gz|tgz|bak|7z|rar|log|cache|secret|db|backup|yml|gz|git|config|csv|yaml|md|md5|exe|dll|bin|ini|bat|sh|tar|deb|rpm|iso|img|apk|msi|env|dmg|tmp|crt|pem|key|pub|asc)$
 
+
+🧪 Test it on these sites
+
+    https://crt.sh
+
+    https://dnsdumpster.com
+
+    https://rapiddns.io
+
+    https://securitytrails.com
+
+    Any public bug bounty target pages with subdomain lists
+USE IN CONSOLE
+
+(() => {
+  const domainRegex = /([a-z0-9][a-z0-9\-]*\.)+[a-z]{2,}/gi;
+  const matches = Array.from(document.body.innerText.matchAll(domainRegex)).map(m => m[0].toLowerCase());
+  const unique = [...new Set(matches)];
+  unique.forEach(d => console.log(d));
+})();
